@@ -1,0 +1,15 @@
+### Software Goals ###
+The current goals of this library and its usage
+
+1. Library should be easily accessable and self contained --> easy integration into projects and programs
+2. Library should be intuitive to program in without much need for guidance
+    - Provide intuitive handles and a straightforward object structure
+    - Use as few types of seperate widgets as possible (widget should contextually construct tkinter objects according to usage)
+3. Library should be stable and platform independant, able to be used on any system supporting tkinter
+    - Library should fully support python 2.x and 3.x with the same opperation on each
+    - Dependancies should be few and common
+4. Library should provide helpful and explanatory help messages upon exceptions and unexpected conditions
+5. Library should be optimized to require as little processor time for a GUI as possible
+    - Perform early computations in favor of live computations for animations and appearances
+    - Use fast access data types to store data
+    - Avoid superfluous features
