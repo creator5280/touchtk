@@ -1,1 +1,11 @@
-
+About Touchtk Root
+  This is the master object, of which there may be only one.
+  (suggestion: read namespace dictionary to make sure multiple are not made, throw error message if two or more are present).
+  User should not ever really need to access this object, but it will store and track the behavior and data of all children behind the scenes
+  Mainloop method belongs here.
+  Construction mode may be turned on during development, which will make all children provide detailed tooltips on mouseover, and all Elements
+  within a Window will be outlined with a thin colored border, according to widget type.
+  
+Touchtk.Root
+  .mainloop() --> Method must be called after setup
+  .construction_mode() --> Returns if construction mode is on or not, optional mode arguement will 
