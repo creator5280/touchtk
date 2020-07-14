@@ -1,0 +1,45 @@
+### Example Widget Organization ###
+
+Touchtk Root
+|-> Touchtk Window
+|   |-> Touchtk Frame
+|   |   |-> Touchtk Frame
+|   |   |-> Touchtk Window
+|   |   |-> Touchtk Element
+|-> Touchtk Keyboard
+|   |-> Touchtk Element
+|-> Touchtk Tooltip
+
+
+### Widgets ###
+
+Touchtk.Root: 
+  This is the master object, of which there may be only one.
+  (suggestion: read namespace dictionary to make sure multiple are not made, throw error message if two or more are present).
+  User should not ever really need to access this object, but it will store and track the behavior and data of all children behind the scenes
+  Construction mode may be turned on during development, which will make all children provide detailed tooltips on mouseover, and all Elements
+  within a Window will be outlined with a thin colored border, according to widget type.
+  
+Touchtk.Window:
+  This is the main object of an application, each instance will create and control a seperate application window
+  Include all window manager handles, as well non-os-dependant alternatives, including a self sufficient and customizable titlebar.
+  Appearance and main theme are applied here. May be specified using one of several presets, manually edited with methods, or specified 
+  via xml file.
+  Contains a Canvas which fills the whole Touchtk.Window, and a Touchtk.Frame already placed within the canvas and also fit to the whole Canvas.
+  Touchtk.Window may be set transparent when not using the window manager (OS specific feature).
+  Touchtk.Windows may also be used as widgets within anouther Touchtk.Window or Touchtk.Frame. When used this way they do not actually create a new Tkinter.Window,
+  but instead add only a Canvas, which behaves just like the parent canvas of the topmost Touchtk.Window.
+  
+Touchtk.Frame:
+  This is the main organizational object within a GUI. Unlike a Tkinter.Frame a Touchtk.Frame is not a literal frame, but an object without
+  a coresponding GUI widget. Unlike Tkinter, Touchtk widgets are ALL actually canvas elements within the canvas of the parent Touchtk.Window.
+  This allows custom geometry managers to be capable of element transparency, different organization schemes, panable areas, free element rotation, and animation.
+  
+Touchtk.Element:
+  This is the main content object within a GUI. It combines the capabilities of many Tkinter widgets including: Button, Label, Entry, Dropdown, Dropdown Entry, etc. 
+  Image processing is included. Shapes are included.
+  Uses rectangles for the background and border.
+  Inherits appearance from parent Window theme, may be modified directly via methods, or read from XML file
+  
+Touchtk.Keyboard:
+  An os independant, themeable, on screen keyboard. Configureable for different key layouts. 
